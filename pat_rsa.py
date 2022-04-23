@@ -89,8 +89,16 @@ def encrypt(pub_key,plaintext):
             x.append(str(402))
         elif(i == "]"):
             x.append(str(403))
+        elif(i == "{"):
+            x.append(str(404))
+        elif(i == "["):
+            x.append(str(405))
+        elif(i == ""):
+            x.append(str(406))
+        elif(i == ""):
+            x.append(str(407))
     return x
-     
+# Problem symbols - > \ , " , 
  
 #Decryption
 def decrypt(priv_key,ciphertext):
@@ -108,6 +116,12 @@ def decrypt(priv_key,ciphertext):
             x+="}"
         elif(i=='403'):
             x+="]"
+        elif(i=='404'):
+            x+="{"
+        elif(i=='405'):
+            x+="["
+        elif(i=='406'):
+            x+=""
         elif (int(i)<0):
             i=-1*int(i)
             m=(int(i)**d)%n-1
@@ -127,7 +141,7 @@ p=17
 q=13
 n=p*q
 d=multiplicative_inverse(e,p,q)
-message="Hello My name is Tandin Dorji. What is yours?"
+message="Hello My name is Tandin Dorji. What is yours? | } ] "
 
 print("ANS --> The multiplicative inverse of e modulo phi(p*q) is",d)
 print("Public key = (e,n) = ", (e,n))
