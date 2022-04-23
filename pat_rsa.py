@@ -139,7 +139,7 @@ def encrypt(pub_key,plaintext):
         elif(i == "="):
             x.append(str(427))
         elif(i == "+"):
-            x.append(str(427))
+            x.append(str(428))
     return x
 
 # Problem symbols - > \ , " , 
@@ -182,6 +182,34 @@ def decrypt(priv_key,ciphertext):
             x+=","
         elif(i=='414'):
             x+="<"
+        elif(i=='415'):
+            x+="!"
+        elif(i=='416'):
+            x+="@"
+        elif(i=='417'):
+            x+="#"
+        elif(i=='418'):
+            x+="$"
+        elif(i=='419'):
+            x+="%"
+        elif(i=='420'):
+            x+="^"
+        elif(i=='421'):
+            x+="&"
+        elif(i=='422'):
+            x+="*"
+        elif(i=='423'):
+            x+="("
+        elif(i=='424'):
+            x+=")"
+        elif(i=='425'):
+            x+="-"
+        elif(i=='426'):
+            x+="_"
+        elif(i=='427'):
+            x+="="
+        elif(i=='428'):
+            x+="+"
 
         elif (int(i)<0):
             i=-1*int(i)
