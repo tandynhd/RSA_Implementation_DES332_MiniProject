@@ -85,6 +85,8 @@ def encrypt(pub_key,plaintext):
             x.append(str(400))
         elif(i == "."):
             x.append(str(401))
+        elif(i == "!"):
+            x.append(str(402))
     return x
      
  
@@ -100,6 +102,8 @@ def decrypt(priv_key,ciphertext):
             x+=' '
         elif(i=='401'):
             x+="."
+        elif(i=='401'):
+            x+="!"
         elif (int(i)<0):
             i=-1*int(i)
             m=(int(i)**d)%n-1
