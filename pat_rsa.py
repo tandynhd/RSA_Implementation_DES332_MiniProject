@@ -80,6 +80,7 @@ def encrypt(pub_key,plaintext):
             c=(m**e)%n
             c=str(-1*c)
             x.append(c)
+        
         elif(i.isspace()):
             spc=400
             x.append(str(400))
@@ -93,11 +94,54 @@ def encrypt(pub_key,plaintext):
             x.append(str(404))
         elif(i == "["):
             x.append(str(405))
-        elif(i == ""):
+        elif(i == "'"):
             x.append(str(406))
-        elif(i == ""):
+        elif(i == ";"):
             x.append(str(407))
+        elif(i == ":"):
+            x.append(str(408))
+        elif(i == "?"):
+            x.append(str(409))
+        elif(i == "/"):
+            x.append(str(410))
+        elif(i == "."):
+            x.append(str(411))
+        elif(i == ">"):
+            x.append(str(412))
+        elif(i == ","):
+            x.append(str(413))
+        elif(i == "<"):
+            x.append(str(414))
+        elif(i == "!"):
+            x.append(str(415))
+        elif(i == "@"):
+            x.append(str(416))
+        elif(i == "#"):
+            x.append(str(417))
+        elif(i == "$"):
+            x.append(str(418))
+        elif(i == "%"):
+            x.append(str(419))
+        elif(i == "^"):
+            x.append(str(420))
+        elif(i == "&"):
+            x.append(str(421))
+        elif(i == "*"):
+            x.append(str(422))
+        elif(i == "("):
+            x.append(str(423))
+        elif(i == ")"):
+            x.append(str(424))
+        elif(i == "-"):
+            x.append(str(425))
+        elif(i == "_"):
+            x.append(str(426))
+        elif(i == "="):
+            x.append(str(427))
+        elif(i == "+"):
+            x.append(str(427))
     return x
+
 # Problem symbols - > \ , " , 
  
 #Decryption
@@ -121,7 +165,24 @@ def decrypt(priv_key,ciphertext):
         elif(i=='405'):
             x+="["
         elif(i=='406'):
-            x+=""
+            x+="'"
+        elif(i=='407'):
+            x+=";"
+        elif(i=='408'):
+            x+=":"
+        elif(i=='409'):
+            x+="?"
+        elif(i=='410'):
+            x+="/"
+        elif(i=='411'):
+            x+="."
+        elif(i=='412'):
+            x+=">"
+        elif(i=='413'):
+            x+=","
+        elif(i=='414'):
+            x+="<"
+
         elif (int(i)<0):
             i=-1*int(i)
             m=(int(i)**d)%n-1
@@ -141,7 +202,7 @@ p=17
 q=13
 n=p*q
 d=multiplicative_inverse(e,p,q)
-message="Hello My name is Tandin Dorji. What is yours? | } ] "
+message="Hello My name is Tandin Dorji. What is yours? | } ] ' ; : / ? . > , <"
 
 print("ANS --> The multiplicative inverse of e modulo phi(p*q) is",d)
 print("Public key = (e,n) = ", (e,n))
