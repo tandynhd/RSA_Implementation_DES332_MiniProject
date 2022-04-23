@@ -83,10 +83,12 @@ def encrypt(pub_key,plaintext):
         elif(i.isspace()):
             spc=400
             x.append(str(400))
-        elif(i == "."):
+        elif(i == "|"):
             x.append(str(401))
-        elif(i == "!"):
+        elif(i == "}"):
             x.append(str(402))
+        elif(i == "]"):
+            x.append(str(403))
     return x
      
  
@@ -101,9 +103,11 @@ def decrypt(priv_key,ciphertext):
         if(i=='400'):
             x+=' '
         elif(i=='401'):
-            x+="."
-        elif(i=='401'):
-            x+="!"
+            x+="|"
+        elif(i=='402'):
+            x+="}"
+        elif(i=='403'):
+            x+="]"
         elif (int(i)<0):
             i=-1*int(i)
             m=(int(i)**d)%n-1
