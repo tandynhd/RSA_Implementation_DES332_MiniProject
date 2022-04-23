@@ -83,6 +83,8 @@ def encrypt(pub_key,plaintext):
         elif(i.isspace()):
             spc=400
             x.append(str(400))
+        elif(i == "."):
+            x.append(str(401))
     return x
      
  
@@ -96,6 +98,8 @@ def decrypt(priv_key,ciphertext):
     for i in txt:
         if(i=='400'):
             x+=' '
+        elif(i=='401'):
+            x+="."
         elif (int(i)<0):
             i=-1*int(i)
             m=(int(i)**d)%n-1
@@ -115,7 +119,7 @@ p=17
 q=13
 n=p*q
 d=multiplicative_inverse(e,p,q)
-message="Hello My name is Tandin Dorji! What is yours?"
+message="Hello My name is Tandin Dorji. What is yours?"
 
 print("ANS --> The multiplicative inverse of e modulo phi(p*q) is",d)
 print("Public key = (e,n) = ", (e,n))
