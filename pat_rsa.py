@@ -1,5 +1,4 @@
-#Patsaphon Chandhakanond 6222782375 SIIT DE
-#DES332 Section1 
+
 
 #compute the multiplicative inverse
 #of e modulo phi(p*q) efficiently,
@@ -166,7 +165,7 @@ def encrypt(pub_key,plaintext):
 
     return x
 
-# Problem symbols - > \ , " , 
+# Problem symbols -> \ , " , 
  
 #Decryption
 def decrypt(priv_key,ciphertext):
@@ -236,8 +235,26 @@ def decrypt(priv_key,ciphertext):
         elif(i=='428'):
             x+="+"
 
+        elif(i=='500'):
+            x+="0"
         elif(i=='501'):
             x+="1"
+        elif(i=='502'):
+            x+="2"
+        elif(i=='503'):
+            x+="3"
+        elif(i=='504'):
+            x+="4"
+        elif(i=='505'):
+            x+="5"
+        elif(i=='506'):
+            x+="6"
+        elif(i=='507'):
+            x+="7"
+        elif(i=='508'):
+            x+="8"
+        elif(i=='509'):
+            x+="9"
 
         elif (int(i)<0):
             i=-1*int(i)
