@@ -1,13 +1,10 @@
+def toBinary(a):
+  l,m=[],[]
+  for i in a:
+    l.append(ord(i))
+  for i in l:
+    bins = str((bin(i)[2:]))
+    m.append((bins))
+  return m
 
-from math import *
-from primeGen import primeGen
-
-p = primeGen()
-print("p = ", p)
-
-q = primeGen()
-print("q = ", q)
-
-n = p*q
-
-print("n= pq =", n)
+print(toBinary('test'))
