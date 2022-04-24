@@ -20,26 +20,28 @@ def encrypt(pub_key,plaintext):
     m=0
     for i in plaintext:
         if(i.isupper()):
-            m = ord(i)-65
+            m = ord(i)-65+1
             c=(m**e)%n
             c=str(c)
             x.append(c)
         elif(i.islower()):               
-            m= ord(i)-97
+            m= ord(i)-97+1
             c=(m**e)%n
-            c=str(c)
+            c=str(-1*c)
             x.append(c)
         elif(i.isspace()):
             spc=400
             x.append(str(400))
+        elif(i == "."):
+            x.append(str(401))
+        elif(i == "!"):
+            x.append(str(402))
     return x
      
  
 #Decryption
 def decrypt(priv_key,ciphertext):
-    print(1)
     d,n=priv_key
-    print(2)
     txt=ciphertext.split(',')
     print(txt)
     x=''
@@ -47,17 +49,28 @@ def decrypt(priv_key,ciphertext):
     for i in txt:
         if(i=='400'):
             x+=' '
-        else:
-            m=(int(i)**d)%n
+        elif(i=='401'):
+            x+="."
+        elif(i=='401'):
+            x+="!"
+        elif (int(i)<0):
+            i=-1*int(i)
+            m=(int(i)**d)%n-1
             m+=97
             c=chr(m)
             x+=c
+        elif (int(i)>0):
+            m=(int(i)**d)%n-1
+            m+=65
+            c=chr(m)
+            x+=c
+        
     return x
 
 
 e,d,n = keyGen()
 
-message="Aa Bb Cc"
+message="Hello World."
 
 print("ANS --> The multiplicative inverse of e modulo phi(p*q) is",d)
 print("Public key = (e,n) = ", (e,n))
@@ -81,6 +94,14 @@ for num in range(0,len(enc_msg)):
 print("Your decrypted message is:",decrypt(privatekey,ciphertext))
 #print(ord('A'))
 #print(ord('a'))
+
+
+e,n
+d,n
+
+
+e,n
+d,n
 
 
 
