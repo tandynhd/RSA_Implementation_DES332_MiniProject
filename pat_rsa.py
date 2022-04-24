@@ -80,10 +80,11 @@ def encrypt(pub_key,plaintext):
             c=(m**e)%n
             c=str(-1*c)
             x.append(c)
-        
+
         elif(i.isspace()):
             spc=400
             x.append(str(400))
+
         elif(i == "|"):
             x.append(str(401))
         elif(i == "}"):
@@ -140,6 +141,29 @@ def encrypt(pub_key,plaintext):
             x.append(str(427))
         elif(i == "+"):
             x.append(str(428))
+
+        elif(i == "0"):
+            x.append(str(500))
+        elif(i == "1"):
+            x.append(str(501))
+        elif(i == "2"):
+            x.append(str(502))
+        elif(i == "3"):
+            x.append(str(503))
+        elif(i == "4"):
+            x.append(str(504))
+        elif(i == "5"):
+            x.append(str(505))
+        elif(i == "6"):
+            x.append(str(506))
+        elif(i == "7"):
+            x.append(str(507))
+        elif(i == "8"):
+            x.append(str(508))
+        elif(i == "9"):
+            x.append(str(509))
+
+
     return x
 
 # Problem symbols - > \ , " , 
@@ -151,6 +175,7 @@ def decrypt(priv_key,ciphertext):
     print(txt)
     x=''
     m=0
+    
     for i in txt:
         if(i=='400'):
             x+=' '
@@ -211,6 +236,9 @@ def decrypt(priv_key,ciphertext):
         elif(i=='428'):
             x+="+"
 
+        elif(i=='501'):
+            x+="1"
+
         elif (int(i)<0):
             i=-1*int(i)
             m=(int(i)**d)%n-1
@@ -236,6 +264,7 @@ d=multiplicative_inverse(e,p,q)
 
 #test number
 message="0 1 2 3 4 5 6 7 8 9"
+
 print("ANS --> The multiplicative inverse of e modulo phi(p*q) is",d)
 print("Public key = (e,n) = ", (e,n))
 print("Private key = (d,n) = ", (d,n))
