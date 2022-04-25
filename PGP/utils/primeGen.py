@@ -66,4 +66,6 @@ def primeGen():
 			# print(n, "bit prime is: \n", prime_candidate)
 			return(prime_candidate)
 
-primeGen()
+# print(primeGen())
+
+

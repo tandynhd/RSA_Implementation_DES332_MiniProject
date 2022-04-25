@@ -305,6 +305,8 @@ print("Your decrypted message is:",decrypt(privatekey,ciphertext))
 #print(ord('A'))
 #print(ord('a'))
 
+print(e,p,q,n,d)
+
 
 
 

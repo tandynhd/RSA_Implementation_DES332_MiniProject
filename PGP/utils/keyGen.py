@@ -1,21 +1,20 @@
-
 from math import *
-from primeGen import primeGen
-from extEuclid import ExtEuclidean
+from utils.primeGen import primeGen
+from utils.extEuclid import ExtEuclidean
 
 def keyGen():
     #1024 bit Pirme Numbers for p and 1
     p = primeGen()
-    print("p = ", p)
+    # print("p = ", p)
     q = primeGen()
-    print("q = ", q)
+    # print("q = ", q)
 
     n = p*q
-    print("n= pq =", n)
+    # print("n= pq =", n)
 
     phiOfn = (p-1)*(q-1)
     # φ(n) is Euler totient function, which returns the number of positive intergers less than n that are relatively prime to n
-    print("phi(n) = ", phiOfn)
+    # print("phi(n) = ", phiOfn)
 
     #Select e: gcd(φ(n),e) = 1, 1 < e < φ(n)
     # enc = []
@@ -44,6 +43,6 @@ def keyGen():
     print("d=",d)
     print("Public key = (e,n) = ", (e,n))
     print("Private key = (d,n) = ", (d,n))
-    return(e,d,n)
+    return(e,d,n,p,q,phiOfn)
 
-keyGen()
+# print(keyGen())
