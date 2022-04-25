@@ -3,6 +3,7 @@ import hashlib
 
 #Check license
 def check_license(Oneway_hash,digital_signature):
+    # print(Oneway_hash,digital_signature)
     if Oneway_hash==digital_signature:
         print("Digital signature true")
     else:

@@ -3,40 +3,36 @@ from utils.binstr import *
 from utils.moduloExpon import *
 from utils.EDbitseq import *
 from utils.keyGen import *
-
-e,d,n,p,q,phiOfn = keyGen()
-while d<0:
+def keys():
     e,d,n,p,q,phiOfn = keyGen()
+    while d<0:
+        e,d,n,p,q,phiOfn = keyGen()
+    
+    return (e,n),(d,n)
 
 
-# epqnd 11 17 13 221 35
-# PU = (11,221)
-# PR = (35,221)
+def RSAE(M,K):
+    PU,PR = K
+    M_bins = strToBinStr(M)
+    M_cipher = rsaEncrypt(PU,M_bins)
+    print(M_cipher)
+    return(M_cipher)
 
-PU = (e,n)
-PR = (d,n)
+def RSAD(M_cipher, K):
+    PU,PR = K
+    M_decryptedBs = rsaDecrypt(PR,M_cipher)
+    print(M_decryptedBs)
+    M_decrypted = binStrToStr(M_decryptedBs)
+    print(M_decrypted)
+    return(M_decrypted)
 
-M = "Hello what is your name my name is tandin.?!"
-M_bins = strToBinStr(M)
-M_cipher = rsaEncrypt(PU,M_bins)
-print(M_cipher)
-M_decryptedBs = rsaDecrypt(PR,M_cipher)
-print(M_decryptedBs)
-M_decrypted = binStrToStr(M_decryptedBs)
-print(M_decrypted)
+Sender = keys()
+Receiver = keys()
+
+# M = "Hello what is your name my name is tandin.?!"
+# cipher = RSAE(M,Sender)
+# decrypted = RSAD(cipher,Sender)
 
 
 
-
-
-
-# test = 
-# print(test)
-# # test2 = binStrToStr(test)
-# # print(test2)
-
-# binary = bstoBinary(test)
-# print(binary)
-# string = toString(binary)
-# print(string)
 
