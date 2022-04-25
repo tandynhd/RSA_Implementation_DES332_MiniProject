@@ -277,10 +277,10 @@ n=p*q
 d=multiplicative_inverse(e,p,q)
 
 #test alphabet and symbols
-#message="Hello My name is Tandin Dorji. What is yours? | } ] ' ; : / ? . > , < ! @ # $ % ^ & * ( ) - _ = + 0 1 2 3 4 5 6 7 8 9"
+message="Hello My name is Tandin Dorji. What is yours? | } ] ' ; : / ? . > , < ! @ # $ % ^ & * ( ) - _ = + 0 1 2 3 4 5 6 7 8 9"
 
 #test number
-message="0 1 2 3 4 5 6 7 8 9"
+#message="0 1 2 3 4 5 6 7 8 9"
 
 print("ANS --> The multiplicative inverse of e modulo phi(p*q) is",d)
 print("Public key = (e,n) = ", (e,n))
