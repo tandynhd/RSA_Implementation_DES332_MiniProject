@@ -1,13 +1,14 @@
-from pickle import SHORT_BINSTRING
-from strBin import *
 from math import *
-from moduloExponentiation import *
+from utils.moduloExpon import *
 
 # Purpose: break down a bit sequence into plain blocks, padding OneAndZeroes
-def bitSeq2PlainBlocks(bitSeq):
+# (string, integer) => list of strings
+
+# Ex: bitSeq2PlainBlocks("1011000110101011", 7) => ['1011000', '1101010', '1110000']
+
+def bitSeq2PlainBlocks(bitSeq,plainBlockSize):
        # padding OneAndZeroes 10...00, where the number 0 is plainBlockSize - len(bitSeq)%plainBlockSize
        bitSeq = bitSeq + "1" # always padding 1
-       plainBlockSize = 7
        if len(bitSeq)%plainBlockSize != 0:
               bitSeq = bitSeq + "0" * (plainBlockSize - len(bitSeq)%plainBlockSize)
        plainBlocks = []
@@ -16,7 +17,11 @@ def bitSeq2PlainBlocks(bitSeq):
              plainBlocks.append(bitSeq[i*plainBlockSize:(i+1)*plainBlockSize])
        return plainBlocks
 
+
 # Purpose: Remove the padding OneAndZeroes from a bit sequence (use in decryption)
+# string => string
+# EX: removePadding("101100011010101110000") => "1011000110101011" 
+
 def removePadding(bitSeq):
        # padding is 10..00 at the end
        indexOfOne = len(bitSeq)-1
@@ -24,14 +29,20 @@ def removePadding(bitSeq):
               indexOfOne = indexOfOne -1
        return bitSeq[0:indexOfOne]
 
+
 # Convert plain blocks into number sequence
+# EX: blocks2numberSeq(['1011000', '1101010', '1110000']) =>  [88, 106, 112]
 def blocks2numberSeq(blocks):
        numSeq = []
        for b in blocks:
               numSeq.append(int(b,2))
        return numSeq
 
-# Convert number sequence into blocks.    
+
+# Convert number sequence into blocks. 
+# EX:   numberSeq2Blocks([88, 106, 112],7) ==> ['1011000', '1101010', '1110000']
+#       numberSeq2Blocks([121, 6, 73],8) => ['01111001', '00000110', '01001001']
+#      
 
 def numberSeq2Blocks(numSeq, bsize):
        blocks = []
@@ -45,18 +56,21 @@ def numberSeq2Blocks(numSeq, bsize):
 
 
 # RSA encryption
+# EX: rsaEncrypt((5, 221),"1000100110101011") ==> "001100101101001000111"
+# rsaEncrypt((107,143),"110101011000100") ==> 010010000011011001001100
+
 def rsaEncrypt(key, plainBitSeq):
        (e,n) = key
        plainBlockSize = floor(log(n,2))
        cipherBlockSize =  plainBlockSize + 1
-       plainBlocks = bitSeq2PlainBlocks(plainBitSeq)
+       plainBlocks = bitSeq2PlainBlocks(plainBitSeq,plainBlockSize)
        print("plainBlocks = ", plainBlocks)
        plainNumSeq = blocks2numberSeq(plainBlocks)
        print("plainNumSeq = ", plainNumSeq)
        # encryption
        cipherNumSeq = []
        for plainNum in plainNumSeq:
-            #   cipherNum = plainNum**e % n
+              # cipherNum = plainNum**e % n
               cipherNum = effModuloExp(plainNum,e,n)
               cipherNumSeq.append(cipherNum)
        print("cipherNumSeq = ", cipherNumSeq)
@@ -69,6 +83,12 @@ def rsaEncrypt(key, plainBitSeq):
 
 
 # RSA decryption
+# EX: rsaDecrypt((37,77),"100010100101110010100") ==> "1011000110101011"
+#      rsaDecrypt((53,143),"")
+
+# 010010000011011001001111
+
+# rsaDecrypt((77,221),"110000000111100001111101") ==> 010010000011011001001100
 def rsaDecrypt(key, cipherBitSeq):
        (d,n) = key
        plainBlockSize = floor(log(n,2))
@@ -84,7 +104,7 @@ def rsaDecrypt(key, cipherBitSeq):
        # decryption
        plainNumSeq = []
        for cipherNum in cipherNumSeq:
-            #   plainNum = cipherNum**d % n
+              # plainNum = cipherNum**d % n
               plainNum = effModuloExp(cipherNum,d,n)
               plainNumSeq.append(plainNum)
        print("plainNumSeq", plainNumSeq)
@@ -93,22 +113,5 @@ def rsaDecrypt(key, cipherBitSeq):
        plainBitSeq = ""
        for pb in plainBlocks:
               plainBitSeq = plainBitSeq + pb
-       print(plainBitSeq)
        return removePadding(plainBitSeq)
 
-#convert clear-text to binary
-def clearTextBin(clearText):
-    binText = strToBinStr(clearText)
-    return binText
-
-# test = clearTextBin("What is your name my name is tandin dorji.?")
-# print(test)
-# print("Encryption")
-# cipher = rsaEncrypt((11, 221), test)
-# print(cipher)
-
-# print("Decryption")
-
-# decryptedClearText = rsaDecrypt((35,221),cipher)
-# print(decryptedClearText)
-# print(binStrToStr(decryptedClearText))

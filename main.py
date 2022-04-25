@@ -1,9 +1,9 @@
 from rsaMain import *
 from keyGen import *
 
-es,ds,ns=keyGen()
+es,ds,ns,ps,qs=keyGen()
 
-er,dr,nr=keyGen()
+# er,dr,nr,pr,qr=keyGen()
 
 test = clearTextBin("W")
 print(test)
@@ -14,8 +14,7 @@ print(cipher)
 print("Decryption")
 
 decryptedClearText = rsaDecrypt((es,ns),cipher)
+
+# decryptedClearText = chineseRemainder(cipher,ds,ps,qs)
 print(decryptedClearText)
 # print(binStrToStr(decryptedClearText))
-
-if decryptedClearText == test:
-    print (9)

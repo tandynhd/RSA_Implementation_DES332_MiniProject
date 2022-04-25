@@ -58,7 +58,7 @@ def isMillerRabinPassed(mrc):
 
 def primeGen():
 	while True:
-		n = 10
+		n = 1024
 		prime_candidate = getLowLevelPrime(n)
 		if not isMillerRabinPassed(prime_candidate):
 			continue
@@ -67,3 +67,5 @@ def primeGen():
 			return(prime_candidate)
 
 # print(primeGen())
+
+
