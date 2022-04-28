@@ -70,9 +70,17 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Email </label>
-              <input type="email" name="semail" class="form-control" id="email" placeholder="you@example.com">
+              <input type="email" name="semail" class="form-control" id="email" placeholder="Leave blank if using default email">
               <div class="invalid-feedback">
                 Please enter a valid email address for sending the Message.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="passemail" class="form-label">Password </label>
+              <input type="password" name="semail" class="form-control" id="passemail" placeholder="Leave blank if using default email.">
+              <div class="invalid-feedback">
+                Please enter a valid password email address for sending the Message.
               </div>
             </div>
 
@@ -96,7 +104,9 @@
 
 
             
-            <p><input type="submit" class="w-100 btn btn-primary btn-lg" value="submit"></p>
+            <p><input type="submit" id="submitemessage" class="w-100 btn btn-primary btn-lg" value="submit" ></p>
+            
+
             
 
           </form>
