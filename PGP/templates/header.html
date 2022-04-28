@@ -94,7 +94,66 @@
       </div>
     </div>
   </header>
+  <include src="/PGP/templates/header.html"></include>
 
+  <div class="b-example-divider"></div>
+
+  <div class="modal modal-tour position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalTour">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-6 shadow">
+      <div class="modal-body p-5">
+          <h2 class="fw-bold mb-0">Status:</h2>
+          <h3 class="fw-bold mb-0">Message sent succesfully!</h3>
+
+          <ul class="d-grid gap-4 my-5 list-unstyled">
+          <li class="d-flex gap-4">
+              <svg class="bi text-muted flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
+              <div>
+              <h5 class="mb-0">Form:</h5>
+              tandynhd
+              </div>
+          </li>
+          <li class="d-flex gap-4">
+              <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
+              <div>
+              <h5 class="mb-0">To:</h5>
+              hong@gmail.com
+              </div>
+          </li>
+          <li class="d-flex gap-4">
+              <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
+              <div>
+              <h5 class="mb-0">Message:</h5>
+              Hello
+              </div>
+          </li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal">Great, thanks!</button>
+          <hr class="my-4">
+          <h2 class="fs-5 fw-bold mb-3">View Details</h2>
+          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4" type="submit">
+              <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"/></svg>
+              Encrypted Message
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4" type="submit">
+              <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
+              Decrypted Message
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-4" type="submit">
+              <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"/></svg>
+              Time Takes
+          </button>
+      </div>
+      </div>
+  </div>
+  </div>
+
+
+
+  <div class="b-example-divider"></div>
+
+
+      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   
 </main>
 
