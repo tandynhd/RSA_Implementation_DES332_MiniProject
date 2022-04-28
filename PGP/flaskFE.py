@@ -8,11 +8,19 @@ def home():
     if request.method == "POST":
         username = request.form["username"]
         sEmail = request.form["semail"]
+        spassword = request.form["spassword"]
         rEmail = request.form["remail"]
         message = request.form["email"]
-        data = [username, sEmail, rEmail, message]
+        if sEmail == "":
+            sEmail = "ktp.des332work@gmail.com"  # Email account of sender
+        if spassword == "":
+            spassword = "ktp.1234"
+        if rEmail == "":
+            rEmail = "hackdorji@gmail.com"  # Email account of sender
+        data = [username, sEmail, spassword, rEmail, message]
         main(data)
-        return f"Hello {data}!"
+        # return f"Hello {data}!"
+        return render_template("result.html", info = data)
 
     else:
         return render_template("index.html")

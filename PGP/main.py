@@ -9,7 +9,7 @@ def main(data):
     Sender = keys()
     Receiver = keys()
 
-    username, password, sender, receiver, message = data
+    username, sender, password, receiver, message = data
     #Authentication
     sent,digitalSign = sendS(username,Sender)
     # print(sent)
@@ -26,7 +26,8 @@ def main(data):
 
 
 
-data = ["tandinhd","", "","", "How are you? Test 2"]
-main(data)
+# data = ["tandinhd","", "","", "How are you? Test 2"]
+# data = [username, sEmail, spassword, rEmail, message]
+# main(data)
 
 

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+  {% username, sEmail, spassword, rEmail, message = info%}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,40 +80,26 @@
                 <li class="d-flex gap-4">
                     <svg class="bi text-muted flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
                     <div>
-                    <h5 class="mb-0">Form:</h5>
-                    tandynhd
+                    <h5 class="mb-0">From:</h5>
+                    username: {{username}}
+                    email: {{sEmail}}
                     </div>
                 </li>
                 <li class="d-flex gap-4">
                     <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
                     <div>
                     <h5 class="mb-0">To:</h5>
-                    hong@gmail.com
+                    email: {{rEmail}}
                     </div>
                 </li>
                 <li class="d-flex gap-4">
                     <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
                     <div>
                     <h5 class="mb-0">Message:</h5>
-                    Hello
+                    {{message}}
                     </div>
                 </li>
                 </ul>
-                <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal">Great, thanks!</button>
-                <hr class="my-4">
-                <h2 class="fs-5 fw-bold mb-3">View Details</h2>
-                <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4" type="submit">
-                    <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"/></svg>
-                    Encrypted Message
-                </button>
-                <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4" type="submit">
-                    <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
-                    Decrypted Message
-                </button>
-                <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-4" type="submit">
-                    <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"/></svg>
-                    Time Takes
-                </button>
             </div>
             </div>
         </div>
