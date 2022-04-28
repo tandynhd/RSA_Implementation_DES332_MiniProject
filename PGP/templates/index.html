@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <title>KTP Email Security</title>
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/"> -->
@@ -48,21 +49,21 @@
   <main>
     <div class="py-5 text-center">
       <!-- <img class="d-block mx-auto mb-4" src="pics/ktp.svg" alt="" width="350" height="200"> -->
-      <image src="{{ url_for('static', filename='images/3to1logo.png') }}">
+      <image src="{{ url_for('static', filename='images/ktp.svg') }}"  width="350" height="200">
       <h2>KTP: Email Security System</h2>
       <p class="lead">Helps you send and receive your emails securely</p>
-      <p class="lead">Authentication: Uses RSA encryption along with SHA-1 message digest to generate a digital signature</p>
-      <p class="lead">Confidentialty: Uses RSA encryption along with AES encryption to secure the actual contents of the email</p>
+      <p class="form-label">Authentication: Uses RSA encryption along with SHA-1 message digest to generate a digital signature</p>
+      <p class="form-label">Confidentialty: Uses RSA encryption along with AES encryption to secure the actual contents of the email</p>
     </div>
 
           <h4 class="mb-3">New Email</h4>
        
           <form action="#" method="post">
             <div class="col-12">
-              <label for="username" class="form-label">Username</label>
+              <label for="username" class="form-label">Username *Leave blank to test the default username</label>
               <div class="input-group has-validation">
                 <span class="input-group-text">@</span>
-                <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+                <input type="text" name="username" class="form-control" id="username" placeholder="Username">
               <div class="invalid-feedback">
                   Your username is required.
                 </div>
@@ -94,8 +95,8 @@
               </div>
 
             <div class="col-12">
-              <label for="message" class="form-label">Message</label>
-              <input type="textarea" name="email" class="form-control" id="message" placeholder="Hello! This is KTP, send an email securely using our services." required>
+              <label for="message" class="form-label">Message *Leave blank to send the default text</label>
+              <input type="textarea" name="email" class="form-control" id="message" placeholder="Hello! This is KTP, send an email securely using our services.">
               <div class="invalid-feedback">
                 Please enter your Message.
               </div>

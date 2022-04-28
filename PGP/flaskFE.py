@@ -11,6 +11,8 @@ def home():
         spassword = request.form["spassword"]
         rEmail = request.form["remail"]
         message = request.form["email"]
+        if username == "":
+            username = "tester"  # Email account of sender
         if sEmail == "":
             sEmail = "ktp.des332work@gmail.com"  # Email account of sender
         if spassword == "":
@@ -20,7 +22,7 @@ def home():
             # rEmail = "hung.nd.siit@gmail.com"  # Email account of receiver
         if message == "":
             message = "Hello! This is KTP, send an email securely using our services."
-            
+
         data = [username, sEmail, spassword, rEmail, message]
         main(data)
         # return f"Hello {data}!"
