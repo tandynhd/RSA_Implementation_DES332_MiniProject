@@ -23,7 +23,7 @@ def sendEmail(sentBy,receivedBy,mail,senderPassword):
     s.login(sender_email, password)
     # message to be sent
     if mail == "":
-        message = "Message_you_need_to_send"
+        message = "Hello! This is KTP, send an email securely using our services."
     else:
         message = mail
     # sending the mail

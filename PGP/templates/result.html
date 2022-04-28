@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="en">
-  {% username, sEmail, spassword, rEmail, message = info%}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Modals · Bootstrap v5.1</title>
+    <title>KTP Email Sent</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/modals/">
 
@@ -34,7 +33,8 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="modals.css" rel="stylesheet">
+    <!-- <link href="modals.css" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/modals.css') }}"> -->
   </head>
 
   <body>
@@ -43,25 +43,18 @@
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <img class="bi me-2" src="../templates/pics/ktp.svg" alt="" width="40" height="32">
+            <!-- <img class="bi me-2" src="../templates/pics/ktp.svg" alt="" width="40" height="32"> -->
+            <image src="{{ url_for('static', filename='images/3to1logo.png') }}"></image>
             
           </a>
   
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+            <li><a href="/home" class="nav-link px-2 text-secondary">Home</a></li>
+            <li><a href="https://docs.google.com/document/d/1aRRamFACTeRDbQr1rbF-yT8zP5hFk2RLyGgirNkYjAI/edit?usp=sharing" class="nav-link px-2 text-white">Documentation</a></li>
           </ul>
-  
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-          </form>
-  
+    
           <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+            <!-- <button type="button" class="btn btn-warning"><a href="/home" style="text-decoration: none;">Send Again</a></button> -->
           </div>
         </div>
       </div>
@@ -73,30 +66,30 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content rounded-6 shadow">
             <div class="modal-body p-5">
-                <h2 class="fw-bold mb-0">Status:</h2>
-                <h3 class="fw-bold mb-0">Message sent succesfully!</h3>
+                <!-- <h2 class="fw-bold mb-0">Status:</h2> -->
+                <h3 class="fw-bold mb-0">Message Sent Succesfully!</h3>
 
                 <ul class="d-grid gap-4 my-5 list-unstyled">
                 <li class="d-flex gap-4">
                     <svg class="bi text-muted flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
                     <div>
-                    <h5 class="mb-0">From:</h5>
-                    username: {{username}}
-                    email: {{sEmail}}
+                    <h5 class="mb-0">From:</h5></br>
+                    username: {{value[0]}}</br>
+                    email: {{value[1]}}</br>
                     </div>
                 </li>
                 <li class="d-flex gap-4">
                     <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
                     <div>
-                    <h5 class="mb-0">To:</h5>
-                    email: {{rEmail}}
+                    <h5 class="mb-0">To:</h5></br>
+                    email: {{value[3]}}</br>
                     </div>
                 </li>
                 <li class="d-flex gap-4">
                     <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
                     <div>
-                    <h5 class="mb-0">Message:</h5>
-                    {{message}}
+                    <h5 class="mb-0">Message:</h5></br>
+                    {{value[4]}}</br>
                     </div>
                 </li>
                 </ul>
@@ -105,22 +98,14 @@
         </div>
         </div>
 
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-            </a>
-            <span class="text-muted">&copy; 2022 Serv</span>
-          </div>
-      
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+          <p class="mb-1">&copy; 2022 KTP: Email Security System</p>
+          <ul class="list-inline">
             <li class="list-inline-item"><a href="https://www.linkedin.com/in/tandynhd/">Tandin</a></li>
             <li class="list-inline-item"><a href="https://www.linkedin.com/in/kanokkarn-pinkeaw/">Kanokkarn</a></li>
             <li class="list-inline-item"><a href="https://www.linkedin.com/in/kanokkarn-pinkeaw/">Patsaphon</a></li>
           </ul>
         </footer>
-
-
 
         <div class="b-example-divider"></div>
 

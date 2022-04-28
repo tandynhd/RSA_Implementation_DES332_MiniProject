@@ -16,7 +16,7 @@
 .rounded-6 { border-radius: 1rem; }
 
 .modal-sheet .modal-dialog {
-  width: 380px;
+  width: 780px;
   transition: bottom .75s ease-in-out;
 }
 .modal-sheet .modal-footer {
@@ -24,11 +24,11 @@
 }
 
 .modal-alert .modal-dialog {
-  width: 380px;
+  width: 780px;
 }
 
 .border-right { border-right: 1px solid #eee; }
 
 .modal-tour .modal-dialog {
-  width: 380px;
+  width: 780px;
 }

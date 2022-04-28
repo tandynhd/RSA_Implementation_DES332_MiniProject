@@ -16,11 +16,15 @@ def home():
         if spassword == "":
             spassword = "ktp.1234"
         if rEmail == "":
-            rEmail = "hackdorji@gmail.com"  # Email account of sender
+            rEmail = "hackdorji@gmail.com"  # Email account of receiver
+            # rEmail = "hung.nd.siit@gmail.com"  # Email account of receiver
+        if message == "":
+            message = "Hello! This is KTP, send an email securely using our services."
+            
         data = [username, sEmail, spassword, rEmail, message]
         main(data)
         # return f"Hello {data}!"
-        return render_template("result.html", info = data)
+        return render_template("result.html", value = data)
 
     else:
         return render_template("index.html")
