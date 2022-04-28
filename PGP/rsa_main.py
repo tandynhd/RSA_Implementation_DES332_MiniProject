@@ -10,15 +10,14 @@ def keys():
     
     return (e,n),(d,n)
 
-
-def RSAE(M,K):
+def RSAEpu(M,K):
     PU,PR = K
     M_bins = strToBinStr(M)
     M_cipher = rsaEncrypt(PU,M_bins)
     # print(M_cipher)
     return(M_cipher)
 
-def RSAD(M_cipher, K):
+def RSADpr(M_cipher, K):
     PU,PR = K
     M_decryptedBs = rsaDecrypt(PR,M_cipher)
     # print(M_decryptedBs)
@@ -26,12 +25,25 @@ def RSAD(M_cipher, K):
     # print(M_decrypted)
     return(M_decrypted)
 
-Sender = keys()
-Receiver = keys()
+def RSAEpr(M,K):
+    PU,PR = K
+    M_bins = strToBinStr(M)
+    M_cipher = rsaEncrypt(PR,M_bins)
+    # print(M_cipher)
+    return(M_cipher)
+
+def RSADpu(M_cipher, K):
+    PU,PR = K
+    M_decryptedBs = rsaDecrypt(PU,M_cipher)
+    # print(M_decryptedBs)
+    M_decrypted = binStrToStr(M_decryptedBs)
+    # print(M_decrypted)
+    return(M_decrypted)
 
 # M = "Hello what is your name my name is tandin.?!"
-# cipher = RSAE(M,Sender)
-# decrypted = RSAD(cipher,Sender)
+# cipher = RSAEpu(M,Sender)
+# decrypted = RSADpr(cipher,Sender)
+# print(decrypted)
 
 
 
