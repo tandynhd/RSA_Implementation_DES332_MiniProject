@@ -5,7 +5,7 @@ import hashlib
 # Authentication
 # Sender
 #1) Creates a clear text message
-def sendS(message):
+def sendS(message,Sender):
     print("==========================================")
     print("Authentication")
     #2) The sender creates a SHA-1 message digest of the clear-text message.
@@ -14,10 +14,10 @@ def sendS(message):
     #3) Encrypt the SHA-1 message digest using senders private key (RSA)
     cipher = RSAEpr(digest,Sender)
     # print(cipher)
-    return(receiveS(cipher,message))
+    return(receiveS(cipher,message,Sender))
 
 #Receiver
-def receiveS(cipher,message):
+def receiveS(cipher,message,Sender):
     #4) Decrypt the RSA encrypted SHA-1 message digest using senders public key (RSA)
     decrypted = RSADpu(cipher,Sender)
     digest = hashlib.sha1(bytes(message, 'utf-8')).hexdigest()
