@@ -30,19 +30,19 @@ def keyGen():
     # e = enc[3]
     e = 65537
     print("e=",e)
-    # verify that gcd(e,phiOfn) = 1
-    if gcd(e,phiOfn) == 1:
-        print("Good! e is relatively prime to phi(n)")
-    else:
-        print("Bad! e is not relatively prime to phi(n)")
-        exit()
+    # # verify that gcd(e,phiOfn) = 1
+    # if gcd(e,phiOfn) == 1:
+    #     print("Good! e is relatively prime to phi(n)")
+    # else:
+    #     print("Bad! e is not relatively prime to phi(n)")
+    #     exit()
 
     # determine d such that de mod phiOfn = 1 and d <  phiOfn
 
     _,d,_ = ExtEuclidean(e, phiOfn)
-    print("d=",d)
-    print("Public key = (e,n) = ", (e,n))
-    print("Private key = (d,n) = ", (d,n))
+    # print("d=",d)
+    # print("Public key = (e,n) = ", (e,n))
+    # print("Private key = (d,n) = ", (d,n))
     return(e,d,n,p,q,phiOfn)
 
 # print(keyGen())

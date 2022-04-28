@@ -60,6 +60,8 @@ def numberSeq2Blocks(numSeq, bsize):
 # rsaEncrypt((107,143),"110101011000100") ==> 010010000011011001001100
 
 def rsaEncrypt(key, plainBitSeq):
+       print("==========================================")
+       print("RSA Encryption Under Process ")
        (e,n) = key
        plainBlockSize = floor(log(n,2))
        cipherBlockSize =  plainBlockSize + 1
@@ -79,6 +81,8 @@ def rsaEncrypt(key, plainBitSeq):
        cipherBitSeq = ""
        for b in cipherBlocks:
               cipherBitSeq = cipherBitSeq + b
+       print("RSA Encryption Completed ")
+       print("==========================================")
        return cipherBitSeq
 
 
@@ -90,6 +94,8 @@ def rsaEncrypt(key, plainBitSeq):
 
 # rsaDecrypt((77,221),"110000000111100001111101") ==> 010010000011011001001100
 def rsaDecrypt(key, cipherBitSeq):
+       print("==========================================")
+       print("RSA Decryption Under Process ")
        (d,n) = key
        plainBlockSize = floor(log(n,2))
        cipherBlockSize =  plainBlockSize + 1
@@ -113,5 +119,7 @@ def rsaDecrypt(key, cipherBitSeq):
        plainBitSeq = ""
        for pb in plainBlocks:
               plainBitSeq = plainBitSeq + pb
+       print("RSA Decryption Completed ")
+       print("==========================================")
        return removePadding(plainBitSeq)
 

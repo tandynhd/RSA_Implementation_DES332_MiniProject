@@ -9,10 +9,10 @@ def sendS(message):
     sha1E = sha1DigestE(message)
     key,plaintext = sha1E
     sha1E = str(key)
-    print(sha1E)
+    # print(sha1E)
     #3) Encrypt the SHA-1 message digest using senders public key (RSA)
     cipher = RSAE(sha1E,Sender)
-    print(cipher)
+    # print(cipher)
     return(receiveS(cipher,sha1E,key,plaintext))
 
 #Receiver
