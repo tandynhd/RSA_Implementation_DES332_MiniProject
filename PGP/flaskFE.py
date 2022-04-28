@@ -1,15 +1,18 @@
 from flask import Flask, redirect, url_for, render_template, request
-from main import *
+from main import main
 
 app = Flask(__name__)
 
 @app.route("/home", methods=["POST", "GET"])
 def home():
     if request.method == "POST":
-        user = request.form["nm"]
-        data = ("tandinhd@icloud.com", "hong@gmail.com", "How are you?")
+        username = request.form["username"]
+        sEmail = request.form["semail"]
+        rEmail = request.form["remail"]
+        message = request.form["email"]
+        data = [username, sEmail, rEmail, message]
         main(data)
-        return redirect(url_for("user", name=user))
+        return f"Hello {data}!"
 
     else:
         return render_template("index.html")

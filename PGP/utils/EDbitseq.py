@@ -66,18 +66,18 @@ def rsaEncrypt(key, plainBitSeq):
        plainBlockSize = floor(log(n,2))
        cipherBlockSize =  plainBlockSize + 1
        plainBlocks = bitSeq2PlainBlocks(plainBitSeq,plainBlockSize)
-       print("plainBlocks = ", plainBlocks)
+       # print("plainBlocks = ", plainBlocks)
        plainNumSeq = blocks2numberSeq(plainBlocks)
-       print("plainNumSeq = ", plainNumSeq)
+       # print("plainNumSeq = ", plainNumSeq)
        # encryption
        cipherNumSeq = []
        for plainNum in plainNumSeq:
               # cipherNum = plainNum**e % n
               cipherNum = effModuloExp(plainNum,e,n)
               cipherNumSeq.append(cipherNum)
-       print("cipherNumSeq = ", cipherNumSeq)
+       # print("cipherNumSeq = ", cipherNumSeq)
        cipherBlocks = numberSeq2Blocks(cipherNumSeq,cipherBlockSize)
-       print("cipherBlocks = ", cipherBlocks)
+       # print("cipherBlocks = ", cipherBlocks)
        cipherBitSeq = ""
        for b in cipherBlocks:
               cipherBitSeq = cipherBitSeq + b
@@ -104,18 +104,18 @@ def rsaDecrypt(key, cipherBitSeq):
        for i in range(0,numOfCipherBlocks):
               cipherBlocks.append(cipherBitSeq[i*cipherBlockSize: (i+1)*cipherBlockSize])
               
-       print("cipherBlocks = ", cipherBlocks)
+       # print("cipherBlocks = ", cipherBlocks)
        cipherNumSeq = blocks2numberSeq(cipherBlocks)
-       print("cipherNumSeq = ", cipherNumSeq)
+       # print("cipherNumSeq = ", cipherNumSeq)
        # decryption
        plainNumSeq = []
        for cipherNum in cipherNumSeq:
               # plainNum = cipherNum**d % n
               plainNum = effModuloExp(cipherNum,d,n)
               plainNumSeq.append(plainNum)
-       print("plainNumSeq", plainNumSeq)
+       # print("plainNumSeq", plainNumSeq)
        plainBlocks = numberSeq2Blocks(plainNumSeq,plainBlockSize)
-       print("plainBlocks", plainBlocks)
+       # print("plainBlocks", plainBlocks)
        plainBitSeq = ""
        for pb in plainBlocks:
               plainBitSeq = plainBitSeq + pb

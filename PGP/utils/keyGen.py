@@ -29,7 +29,7 @@ def keyGen():
     # #Taking a random number from enc to be e
     # e = enc[3]
     e = 65537
-    print("e=",e)
+    # print("e=",e)
     # # verify that gcd(e,phiOfn) = 1
     # if gcd(e,phiOfn) == 1:
     #     print("Good! e is relatively prime to phi(n)")

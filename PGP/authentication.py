@@ -5,6 +5,8 @@ from rsa_main import *
 # Sender
 #1) Creates a clear text message
 def sendS(message):
+    print("==========================================")
+    print("Authentication")
     #2) The sender creates a SHA-1 message digest of the clear-text message.
     sha1E = sha1DigestE(message)
     key,plaintext = sha1E
@@ -24,6 +26,8 @@ def receiveS(cipher,sha1E,key,plaintext):
         decrypted = key
         if sha1DigestD(key) == plaintext:
             print("Digital signature true")
+            print("Authentication Completed ")
+            print("==========================================")
             return(True)
         else:
             print("Digital signature not true")
