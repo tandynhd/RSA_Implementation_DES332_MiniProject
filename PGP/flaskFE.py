@@ -18,8 +18,8 @@ def home():
         if spassword == "":
             spassword = "ktp.1234"
         if rEmail == "":
-            rEmail = "hackdorji@gmail.com"  # Email account of receiver
-            # rEmail = "hung.nd.siit@gmail.com"  # Email account of receiver
+            # rEmail = "hackdorji@gmail.com"  # Email account of receiver
+            rEmail = "hung.nd.siit@gmail.com"  # Email account of receiver
         if message == "":
             message = "Hello! This is KTP, send an email securely using our services."
 
